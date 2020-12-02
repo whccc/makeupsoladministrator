@@ -9,7 +9,6 @@ export const GlobalStyle=createGlobalStyle`
   }
 `
 export const Container=styled.div`
-    border:1px solid yellow;
     min-height:100vh;
     position:relative;
     top:47px;
