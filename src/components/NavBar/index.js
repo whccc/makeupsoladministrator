@@ -21,10 +21,10 @@ export const NavBar=()=>{
                 />
             </Container>
             <Container>
-                solmakeup
+                <span>Makeup-Sol-Admin</span>
             </Container>
             <Container>
-                Login
+                <span>Cerrar Sesion</span>
             </Container>
         </Nav>
         <Navigation
