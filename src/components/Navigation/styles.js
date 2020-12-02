@@ -44,4 +44,8 @@ export const Nav=styled.nav`
             border-bottom:1px solid #e9ebec;
         }
     }
+    //Media queries
+    @media(min-width:1024px){
+        left:0%;
+    }
 `

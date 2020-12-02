@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavBar} from './components/NavBar'
-import {GlobalStyle} from './styles/GlobalStyles'
+import {GlobalStyle,Container} from './styles/GlobalStyles'
 import {CategoriesPage} from './pages/CategoriesPage/CategoriesPage'
 export const App=()=>{
     
@@ -8,7 +8,9 @@ export const App=()=>{
         <div>
             <GlobalStyle/>
             <NavBar/>
-            <CategoriesPage/>
+            <Container>
+                <CategoriesPage/>
+            </Container>
         </div>
     );
 }
