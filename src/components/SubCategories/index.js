@@ -1,7 +1,6 @@
-import React, { Fragment } from 'react';
-import { Section,Input,Button } from './styles'
+import React from 'react';
+import { Section,Input,Button,Select } from './styles'
 import Table from 'react-bootstrap/Table'
-import {SubCategories} from '../SubCategories'
 import {FaTrash,FaEdit} from "react-icons/fa"
 
 const Inputs =({
@@ -16,24 +15,47 @@ const Buttons =({
     return <Button>{Text}</Button>
 }
 
-
-
-export const Categories = () => {
+const Selects =({
+    options
+})=>{
     return (
-        <Fragment>
+        <Select>
+            {
+                options.map((Elemento)=>{
+                return (<option>{Elemento.Name}</option>);
+                })
+            }
+        </Select>
+    );
+
+}
+export const SubCategories = () => {
+    const Json={
+        "options":[{
+            Name:"Electricos"
+        },{
+            Name:"Maquillaje"
+        }]        
+    }
+
+    return (
         <Section>
             <div>
-                <h3>Categorias</h3>
+                <h3>Sub Categorias</h3>
+                <Selects
+                    options={Json.options}
+                />
                 <div>
-                    <Inputs type="text" placeholder="Categoria"/>{" "}
+                    <Inputs type="text" placeholder="Sub Categoria"/>{" "}
                     <Buttons Text="Crear"/>
                 </div>
             </div>
-            <Table striped bordered hover>
+            <Table striped bordered hover responsive>
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Nombre</th>
+                        <th>Nombre Sub Categoria</th>
+                        <th>Categoria</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -41,22 +63,22 @@ export const Categories = () => {
                     <tr>
                         <td>1</td>
                         <td>Facial</td>
+                        <td>Rostro</td>
                         <td><FaEdit/>{"  "}<FaTrash/></td>
                     </tr>
                     <tr>
                         <td>1</td>
+                        <td>Maquillaje</td>
                         <td>Maquillaje</td>
                         <td><FaEdit/>{"  "}<FaTrash/></td>
                     </tr>
                     <tr>
                         <td>1</td>
                         <td>Barberia</td>
+                        <td>Maquillaje</td>
                         <td><FaEdit/>{"  "}<FaTrash/></td>
                     </tr>
                 </tbody>
             </Table>
-        </Section>
-        <SubCategories/>
-        </Fragment>
-        )
+        </Section>)
 }

@@ -18,9 +18,17 @@ export const Button = styled.button`
     border-bottom-right-radius:2px;
     outline:none;
 `
-
+export const Select= styled.select`
+    width:100%;
+    padding:8px;
+    margin-bottom:10px;
+    background:none;
+`
 export const Section = styled.section`
-    margin:5px;
+    margin-top:25px;
+    margin-left:5px;
+    margin-right:5px;
+    margin-bottom:5px;
     background:#fff;
     padding:20px;
     border-radius:5px;
@@ -40,10 +48,10 @@ export const Section = styled.section`
         text-align:center;
         & tbody {
             & tr{
-                & td:nth-child(3){
+                & td:nth-child(4){
                     & svg{
                         font-size:20px;
-                        cursor:pointer;
+                        cursor: pointer;
                     }
                    & svg:nth-child(1){
                     color:tomato;
@@ -56,11 +64,10 @@ export const Section = styled.section`
             }
         }
     }
+
     @media (min-width:1024px){
-        flex:1 1 50%;
-        height:auto;
-        margin-top:0px;
-        max-height:350px;
+       flex:1 1 50%;
+       margin-top:0px;
     }
 
 `
