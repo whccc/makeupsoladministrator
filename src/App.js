@@ -1,10 +1,14 @@
 import React from 'react';
-
-const App=()=>{
+import {NavBar} from './components/NavBar'
+import {GlobalStyle} from './styles/GlobalStyles'
+import {CategoriesPage} from './pages/CategoriesPage/CategoriesPage'
+export const App=()=>{
     
     return(
-        <h1>Hola</h1>
+        <div>
+            <GlobalStyle/>
+            <NavBar/>
+            <CategoriesPage/>
+        </div>
     );
 }
-
-export default App;
