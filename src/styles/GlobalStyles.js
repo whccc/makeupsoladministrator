@@ -7,6 +7,12 @@ export const GlobalStyle=createGlobalStyle`
     font-family:Arial, Helvetica, sans-serif;
   
   }
+  :root{
+    --bg-primary-blue:#3578E5;
+  }
+  button{
+    outline:none !important;
+    }
 `
 export const Container=styled.div`
     min-height:100vh;

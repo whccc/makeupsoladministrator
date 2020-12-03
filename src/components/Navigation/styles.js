@@ -28,7 +28,6 @@ export const Nav=styled.nav`
     & ul a > svg:nth-child(2){
         font-size:15px;
         position:relative;
-        top:2px;
         margin-left:5px;
     }
     & ul a:hover{

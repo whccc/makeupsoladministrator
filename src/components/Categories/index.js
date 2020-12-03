@@ -1,15 +1,10 @@
 import React, { Fragment } from 'react';
-import { Section,Input,Button } from './styles'
+import { Section,Button } from './styles'
 import Table from 'react-bootstrap/Table'
 import {SubCategories} from '../SubCategories'
 import {FaTrash,FaEdit} from "react-icons/fa"
+import {Inputs} from '../Generales'
 
-const Inputs =({
-    type,
-    placeholder
-})=>{
-    return <Input type={type} placeholder={placeholder} />
-}
 const Buttons =({
     Text
 })=>{
