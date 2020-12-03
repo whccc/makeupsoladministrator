@@ -38,7 +38,7 @@ export const Navigation = ({showNavigation}) => {
         <Nav showNavigation={showNavigation}>
             <ul>
                 <li >
-                    <Link to="#" onClick={()=>{showSubMenu("Productos")}}><FaProductHunt/> Gestion Productos {ShowItem.SubMenuProducto?<FaAngleDown/>:<FaAngleLeft/>}</Link>
+                    <a onClick={()=>{showSubMenu("Productos")}}><FaProductHunt/> Gestion Productos {ShowItem.SubMenuProducto?<FaAngleDown/>:<FaAngleLeft/>}</a>
                     <SubMenu
                         ShowItem={ShowItem.SubMenuProducto}
                         Items={JsonSubMenu.SubMenuProductos}

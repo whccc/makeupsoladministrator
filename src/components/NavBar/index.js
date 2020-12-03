@@ -21,7 +21,7 @@ export const NavBar=()=>{
                 />
             </Container>
             <Container>
-                <span>Makeup-Sol-Admin</span>
+                <span>MakeupSol</span>
             </Container>
             <Container>
                 <span>Cerrar Sesion</span>
