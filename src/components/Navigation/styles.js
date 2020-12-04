@@ -43,6 +43,20 @@ export const Nav=styled.nav`
             border-bottom:1px solid #e9ebec;
         }
     }
+    
+    & ul > div{
+        width:100px;
+       border:1px solid #ddd;
+       margin:auto;
+       margin-bottom:10px;
+       padding:5px;
+       margin-top:10px;
+       & img{
+           width:100%;
+       }
+        
+    
+    }
     //Media queries
     @media(min-width:1024px){
         left:0%;

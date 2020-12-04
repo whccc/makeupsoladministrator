@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Nav } from './styles'
 import { SubMenu } from '../NavigationSubMenu'
-import { FaProductHunt,FaBox,FaClone,FaChild,FaAddressBook,FaAngleDown,FaAngleLeft } from "react-icons/fa";
+import PersonImg from '../../img/Person.png'
+import { FaProductHunt,FaBox,FaClone,FaAddressBook,FaAngleDown,FaAngleLeft } from "react-icons/fa";
 import {Link} from '@reach/router';
 
 const JsonSubMenu = {
@@ -37,6 +38,9 @@ export const Navigation = ({showNavigation}) => {
     return (
         <Nav showNavigation={showNavigation}>
             <ul>
+                <div>
+                    <img src={PersonImg}/>
+                </div>
                 <li >
                     <a onClick={()=>{showSubMenu("Productos")}}><FaProductHunt/> Gestion Productos {ShowItem.SubMenuProducto?<FaAngleDown/>:<FaAngleLeft/>}</a>
                     <SubMenu
@@ -44,9 +48,7 @@ export const Navigation = ({showNavigation}) => {
                         Items={JsonSubMenu.SubMenuProductos}
                     />
                 </li>
-                <li>
-                    <Link to="/Clientes"><FaChild/> Clientes</Link>
-                </li>
+                
                 <li>
                     <Link to="/Pedidos"><FaAddressBook/> Pedidos</Link>
                 </li>

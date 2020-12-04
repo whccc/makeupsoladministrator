@@ -9,6 +9,8 @@ export const GlobalStyle=createGlobalStyle`
   }
   :root{
     --bg-primary-blue:#3578E5;
+    --bg-primary-tomato:tomato;
+    --bg-primary-verde:green;
   }
   button{
     outline:none !important;
