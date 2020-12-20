@@ -1,6 +1,4 @@
-import React from 'react' 
-import {Input} from './styles'
+import React from 'react';
+import { Input } from './styles';
 
-export const Inputs =(props)=>{
-    return <Input {...props} />
-}
+export const Inputs = (props) => <Input {...props} />;

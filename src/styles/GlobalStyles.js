@@ -1,7 +1,7 @@
-import styled,{createGlobalStyle} from 'styled-components'
+import styled, { createGlobalStyle } from "styled-components";
 
 //Estilos globales
-export const GlobalStyle=createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   html {
     scroll-behavior: smooth;
   }
@@ -17,15 +17,14 @@ export const GlobalStyle=createGlobalStyle`
   button{
     outline:none !important;
     }
-`
-export const Container=styled.div`
-    min-height:100vh;
-    position:relative;
-    top:47px;
-    transition:all ease-in-out .5s;
-  @media (min-width:1024px){
- 
-  margin-left:200px;
-  width:calc(100% - 200px);
+`;
+export const Container = styled.div`
+  min-height: 100vh;
+  position: relative;
+  top: 47px;
+  transition: all ease-in-out 0.5s;
+  @media (min-width: 1024px) {
+    margin-left: 200px;
+    width: calc(100% - 200px);
   }
-`
+`;

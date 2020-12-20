@@ -1,12 +1,11 @@
-import React from 'react';
-import {Section} from './styles';
-import {Categories} from '../../components/Categories'
-export const CategoriesPage=()=>{
-    
+import React from "react";
+import { Section } from "./styles";
+import { Categories } from "../../components/Categories";
+import { SubCategories } from "../../components/SubCategories";
 
-    return (
-        <Section>
-            <Categories/>
-        </Section>
-    );
-}
+export const CategoriesPage = () => (
+  <Section>
+    <Categories />
+    <SubCategories />
+  </Section>
+);
