@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from 'styled-components';
 
 //Estilos globales
 export const GlobalStyle = createGlobalStyle`
@@ -19,12 +19,12 @@ export const GlobalStyle = createGlobalStyle`
     }
 `;
 export const Container = styled.div`
-  min-height: 100vh;
-  position: relative;
-  top: 47px;
-  transition: all ease-in-out 0.5s;
-  @media (min-width: 1024px) {
-    margin-left: 200px;
-    width: calc(100% - 200px);
-  }
+    min-height: 100vh;
+    position: relative;
+    top: 47px;
+    transition: all ease-in-out 0.5s;
+    @media (min-width: 1024px) {
+        margin-left: 200px;
+        width: calc(100% - 200px);
+    }
 `;

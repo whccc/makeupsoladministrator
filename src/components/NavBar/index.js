@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState, Fragment } from 'react';
 import { Nav, Container } from './styles';
 import { FiAlignJustify } from 'react-icons/fi';
 import { Navigation } from '../Navigation';
-import { Fragment } from 'react';
-import { useState } from 'react';
+import { DeleteUserLogin } from '../../hooks/useUser';
+
+const LogOut = () => {
+    DeleteUserLogin();
+};
 
 export const NavBar = () => {
     const [ShowNavigation, SetShowNavigation] = useState(false);
@@ -21,7 +24,12 @@ export const NavBar = () => {
                     <span>MakeupSol</span>
                 </Container>
                 <Container>
-                    <span>Cerrar Sesion</span>
+                    <span
+                        onClick={() => {
+                            LogOut();
+                        }}>
+                        Cerrar Sesion
+                    </span>
                 </Container>
             </Nav>
             <Navigation showNavigation={ShowNavigation} />
