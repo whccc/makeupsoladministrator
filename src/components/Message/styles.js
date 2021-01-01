@@ -12,11 +12,24 @@ const Animation = keyframes`
     }
 
 `;
-
+const Type = ({ Type }) => {
+    if (Type == 'Danger') {
+        return '#ff4566';
+    }
+    if (Type == 'Success') {
+        return 'green';
+    }
+    return '';
+};
 export const Container = styled.span`
-    background-color: #ff6581;
+    background-color: ${(props) => {
+        return Type(props);
+    }};
     display: none;
-    border: 1px solid #ff4566;
+    border: 1px solid
+        ${(props) => {
+            return Type(props);
+        }};
     position: relative;
     animation: ${Animation} 0.2s linear infinite;
     animation-iteration-count: 1;

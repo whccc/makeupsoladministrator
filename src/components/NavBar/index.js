@@ -3,6 +3,7 @@ import { Nav, Container } from './styles';
 import { FiAlignJustify } from 'react-icons/fi';
 import { Navigation } from '../Navigation';
 import { DeleteUserLogin } from '../../hooks/useUser';
+import Logo from '../../img/Logo.jpeg';
 
 const LogOut = () => {
     DeleteUserLogin();
@@ -21,7 +22,7 @@ export const NavBar = () => {
                     <FiAlignJustify onClick={Show} />
                 </Container>
                 <Container>
-                    <span>MakeupSol</span>
+                    <img src={Logo} />
                 </Container>
                 <Container>
                     <span

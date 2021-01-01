@@ -31,6 +31,12 @@ export const Container = styled.div`
             cursor: pointer;
         }
     }
+    & img {
+        width: 50px;
+        position: relative;
+        left: 65px;
+        z-index: 10 !important;
+    }
     @media (min-width: 1024px) {
         &:nth-child(1) {
             display: none;
