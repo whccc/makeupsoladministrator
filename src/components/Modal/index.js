@@ -3,11 +3,11 @@ import Modal from 'react-bootstrap/Modal';
 
 // Estructura
 
-export const Modals = ({ show, CloseModal, Title }) => (
-    <Modal show={show} onHide={CloseModal}>
+export const Modals = ({ show, CloseModal, Title, children }) => (
+    <Modal show={show} onHide={CloseModal} centered>
         <Modal.Header closeButton>
             <Modal.Title>{Title}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>{Title}</Modal.Body>
+        <Modal.Body>{children}</Modal.Body>
     </Modal>
 );

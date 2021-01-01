@@ -22,6 +22,7 @@ export const Section = styled.section`
         & div {
             width: 100%;
             text-align: right;
+            margin-bottom: 5px;
         }
     }
     & table {
@@ -48,6 +49,15 @@ export const Section = styled.section`
         flex: 1 1 50%;
         height: auto;
         margin-top: 0px;
-        max-height: 350px;
     }
+`;
+
+export const ContainerTable = styled.div`
+    max-height: 220px;
+
+    overflow: auto;
+`;
+
+export const ContainerModal = styled.div`
+    text-align: center;
 `;

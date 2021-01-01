@@ -14,7 +14,7 @@ const ValidateURL = () => {
 };
 
 //Validate form
-const ValidateForm = (strUser, strPassword, SetBlnShow, SetStrMessage) => {
+const ValidateForm = (strUser, strPassword, SetBlnShow, SetStrMessage, blnShow) => {
     if (strUser.trim() == '') {
         SetBlnShow({ blnUser: true, blnPassword: blnShow.blnPassword });
         return;
@@ -66,7 +66,7 @@ export const Login = () => {
                     }}
                     placeholder="Usuario"
                 />
-                <Message Text="Usuario requerido" blnShow={blnShow.blnUser} />
+                <Message Text="Usuario requerido" Type="Danger" blnShow={blnShow.blnUser} />
                 <Input
                     type="password"
                     value={strPassword}
@@ -77,11 +77,11 @@ export const Login = () => {
                     validate={blnShow.blnPassword}
                     placeholder="Clave"
                 />
-                <Message Text="Clave requerida" blnShow={blnShow.blnPassword} />
-                <Message Text={strMessage} blnShow={blnShow.blnStrResponse} />
+                <Message Text="Clave requerida" Type="Danger" blnShow={blnShow.blnPassword} />
+                <Message Text={strMessage} Type="Danger" blnShow={blnShow.blnStrResponse} />
                 <button
                     onClick={() => {
-                        ValidateForm(strUser, strPassword, SetBlnShow, SetStrMessage);
+                        ValidateForm(strUser, strPassword, SetBlnShow, SetStrMessage, blnShow);
                     }}>
                     Acceder
                 </button>
