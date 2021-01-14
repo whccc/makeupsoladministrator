@@ -25,7 +25,7 @@ export default function useCategories() {
     useEffect(async () => {
         const ObjResponse = await axios.get(`${URL_API}/categories`);
         SetObjCategories(ObjResponse.data.Result.Categories);
-        SetUpdateCategories(false);
+        SetCategories(false);
     }, [Update]);
     //Get range Categories limit 10
     useEffect(async () => {
@@ -36,5 +36,11 @@ export default function useCategories() {
         SetObjCategoriesRange(ObjResponse.data.Result.Categories);
     }, [objCategoriesMinMaxRange]);
 
-    return { objCategories, SetCategories, objCategoriesRange, SetCategoriesRange };
+    return {
+        objCategories,
+        SetCategories,
+        objCategoriesRange,
+        SetCategoriesRange,
+        SetUpdateCategories
+    };
 }

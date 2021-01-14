@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 import { Section, Button, ContainerTable, ContainerModal } from './styles';
@@ -8,9 +8,10 @@ import useCategories from '../../hooks/useCategories';
 import { Message } from '../Message';
 import { Modals } from '../Modal';
 import axios from 'axios';
+import CategoryContext from '../../Context/CategoryContext';
 
 //Validate
-const ValidateForm = (strCategory, SetCategoriesRange, SetShowMessage, SetStrCategory) => {
+const ValidateForm = (strCategory, SetShowMessage, SetStrCategory, UpdateContextCategory) => {
     if (strCategory.trim() == '') {
         SetShowMessage({
             blnShow: true,
@@ -25,10 +26,10 @@ const ValidateForm = (strCategory, SetCategoriesRange, SetShowMessage, SetStrCat
         return;
     }
     //Create Category
-    SaveCategory(strCategory, SetCategoriesRange, SetShowMessage, SetStrCategory);
+    SaveCategory(strCategory, SetShowMessage, SetStrCategory, UpdateContextCategory);
 };
 //Save Category
-const SaveCategory = async (strCategory, SetCategoriesRange, SetShowMessage, SetStrCategory) => {
+const SaveCategory = async (strCategory, SetShowMessage, SetStrCategory, UpdateContextCategory) => {
     const Response = await axios.post(`${URL_API}/categories`, { strName: strCategory });
     if (!Response.data.Success) {
         SetShowMessage({
@@ -44,16 +45,27 @@ const SaveCategory = async (strCategory, SetCategoriesRange, SetShowMessage, Set
         Type: 'Success'
     });
     //Set hook Categories
-    SetCategoriesRange({ Min: 0, Max: 10 });
     setTimeout(() => {
         SetShowMessage({
             blnShow: false
         });
         SetStrCategory('');
     }, 2000);
+    UpdateContextCategory(true);
 };
 //Data table
 const Tr = (strData, SetstrEditCategory, SetBlnModal, SetStrDeleteCategory) => {
+    if (strData.length == 0) {
+        return (
+            <tr>
+                <td></td>
+                <td>
+                    <h3>No contiene categorias.</h3>
+                </td>
+                <td></td>
+            </tr>
+        );
+    }
     return strData.map((Data, Index) => {
         return (
             <tr key={Index}>
@@ -89,7 +101,7 @@ const EditCategory = async (
     strEditCategory,
     SetstrEditCategory,
     SetShowMessage,
-    SetCategoriesRange
+    UpdateContextCategory
 ) => {
     try {
         const objRes = await axios.put(`${URL_API}/categories`, {
@@ -102,24 +114,41 @@ const EditCategory = async (
         });
 
         //Set hook Categories
-        SetCategoriesRange({ Min: 0, Max: 10 });
         SetstrEditCategory({ blnShow: false });
         setTimeout(() => {
             SetShowMessage({
                 blnShow: false
             });
         }, 2000);
+        UpdateContextCategory(true);
     } catch (Error) {
         console.log(Error);
     }
 };
 //Data Modal Delete Category
-const DeleteCategory = (StrDeleteCategory, SetBlnModal) => {
+const DeleteCategory = (StrDeleteCategory, SetBlnModal, SetShowMessage, UpdateContextCategory) => {
     //Data
     const { _id, strName } = StrDeleteCategory;
     //Delete category
     const Delete = async (objCategory) => {
-        await axios.delete(`${URL_API}/categories`, { data: { ...objCategory } });
+        const DataResponse = await axios.delete(`${URL_API}/categories`, {
+            data: { ...objCategory }
+        });
+        let objMessage = {
+            blnShow: true,
+            strMessage: DataResponse.data.Success
+                ? 'Categoria eliminada con exito.'
+                : 'No se puede eliminar la categoria.Contiene una relación con subcategorias.',
+            Type: DataResponse.data.Success ? 'Success' : 'Danger'
+        };
+        SetShowMessage({ ...objMessage });
+        setTimeout(() => {
+            SetShowMessage({
+                blnShow: false
+            });
+        }, 2000);
+        SetBlnModal(false);
+        UpdateContextCategory(true);
     };
     return (
         <ContainerModal>
@@ -161,7 +190,9 @@ export const Categories = () => {
     });
     const [blnShowModal, SetBlnModal] = useState(false);
 
-    let { objCategoriesRange, SetCategoriesRange } = useCategories();
+    //let {  objCategoriesRange, SetCategoriesRange, SetCategories } = useCategories();
+
+    const { objCategories, UpdateContextCategory } = useContext(CategoryContext);
     return (
         <>
             <Section>
@@ -179,9 +210,9 @@ export const Categories = () => {
                                 onClick={() => {
                                     ValidateForm(
                                         strCategory,
-                                        SetCategoriesRange,
                                         SetShowMessage,
-                                        SetStrCategory
+                                        SetStrCategory,
+                                        UpdateContextCategory
                                     );
                                 }}>
                                 Crear
@@ -206,7 +237,7 @@ export const Categories = () => {
                                         strEditCategory,
                                         SetstrEditCategory,
                                         SetShowMessage,
-                                        SetCategoriesRange
+                                        UpdateContextCategory
                                     );
                                 }}>
                                 Editar
@@ -237,7 +268,7 @@ export const Categories = () => {
                         </thead>
                         <tbody>
                             {Tr(
-                                objCategoriesRange,
+                                objCategories,
                                 SetstrEditCategory,
                                 SetBlnModal,
                                 SetStrDeleteCategory
@@ -252,7 +283,12 @@ export const Categories = () => {
                     SetBlnModal(!blnShowModal);
                 }}
                 Title="Eliminar Categoria">
-                {DeleteCategory(StrDeleteCategory, SetBlnModal)}
+                {DeleteCategory(
+                    StrDeleteCategory,
+                    SetBlnModal,
+                    SetShowMessage,
+                    UpdateContextCategory
+                )}
             </Modals>
         </>
     );

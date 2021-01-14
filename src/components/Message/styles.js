@@ -42,4 +42,7 @@ export const Container = styled.span`
     color: #fff;
     border-radius: 3px;
     margin-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 3px;
 `;
