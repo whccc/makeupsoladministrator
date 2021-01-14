@@ -66,3 +66,8 @@ export const Section = styled.section`
         margin-top: 0px;
     }
 `;
+
+export const ContainerTable = styled.div`
+    max-height: 220px;
+    overflow: auto;
+`;
