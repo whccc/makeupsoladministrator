@@ -66,7 +66,12 @@ export const Login = () => {
                     }}
                     placeholder="Usuario"
                 />
-                <Message Text="Usuario requerido" Type="Danger" blnShow={blnShow.blnUser} />
+                <Message
+                    setShowMessage={SetStrMessage}
+                    Text="Usuario requerido"
+                    Type="Danger"
+                    blnShow={blnShow.blnUser}
+                />
                 <Input
                     type="password"
                     value={strPassword}

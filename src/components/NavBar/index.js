@@ -21,9 +21,7 @@ export const NavBar = () => {
                 <Container>
                     <FiAlignJustify onClick={Show} />
                 </Container>
-                <Container>
-                    <img src={Logo} />
-                </Container>
+                <Container></Container>
                 <Container>
                     <span
                         onClick={() => {
