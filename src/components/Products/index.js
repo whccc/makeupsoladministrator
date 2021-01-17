@@ -1,11 +1,12 @@
 import React from 'react';
 import { Container, Button } from './styles';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
+import { FormatNumber } from '../../Helpers';
 const JsonButton = [
     {
         Name: 'Modificar',
         Icon: <FaEdit />,
-        Background: '#3578E5'
+        Background: 'var(--bg-primary-blue)'
     },
     {
         Name: 'Eliminar',
@@ -14,20 +15,28 @@ const JsonButton = [
     }
 ];
 
-const Buttons = ({ Name, Icon, Background }) => {
-    return <Button Background={Background}>{Icon}</Button>;
+const Buttons = (ObjButton) => {
+    return <Button {...ObjButton}>{ObjButton.Icon}</Button>;
 };
 
-export const Products = ({ Id, Title, Description, Price, Img }) => {
+export const Products = ({
+    _id,
+    strDescription,
+    strPrice,
+    strName,
+    ArrayImages,
+    FCDeleteProductModal,
+    FCUpdateProductModal
+}) => {
     return (
         <Container>
             <div>
-                <img src={Img} />
+                <img loading="lazy" src={ArrayImages[0]} lazy />
             </div>
             <div>
-                <p>{Title}</p>
-                <p>{Description}</p>
-                <p>$ {Price}</p>
+                <p>{strName}</p>
+                <p>{strDescription}</p>
+                <p>$ {FormatNumber(strPrice)}</p>
                 <div>
                     {JsonButton.map((Elementos, index) => {
                         return (
@@ -36,6 +45,11 @@ export const Products = ({ Id, Title, Description, Price, Img }) => {
                                 Name={Elementos.Name}
                                 Icon={Elementos.Icon}
                                 Background={Elementos.Background}
+                                onClick={
+                                    Elementos.Name == 'Eliminar'
+                                        ? FCDeleteProductModal
+                                        : FCUpdateProductModal
+                                }
                             />
                         );
                     })}

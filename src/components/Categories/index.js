@@ -255,6 +255,7 @@ export const Categories = () => {
                         Text={ShowMessage.strMessage}
                         Type={ShowMessage.Type}
                         blnShow={ShowMessage.blnShow}
+                        setShowMessage={SetShowMessage}
                     />
                 </div>
                 <ContainerTable>

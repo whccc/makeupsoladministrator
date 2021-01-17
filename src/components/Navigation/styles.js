@@ -44,7 +44,7 @@ export const Nav = styled.nav`
     }
 
     & ul > div {
-        width: 100px;
+        width: 150px;
         border: 1px solid #ddd;
         margin: auto;
         margin-bottom: 10px;

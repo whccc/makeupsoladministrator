@@ -36,11 +36,17 @@ export default function useCategories() {
         SetObjCategoriesRange(ObjResponse.data.Result.Categories);
     }, [objCategoriesMinMaxRange]);
 
+    const GetCategories = async () => {
+        const ObjResponse = await axios.get(`${URL_API}/categories`);
+        SetObjCategories(ObjResponse.data.Result.Categories);
+    };
+
     return {
         objCategories,
         SetCategories,
         objCategoriesRange,
         SetCategoriesRange,
-        SetUpdateCategories
+        SetUpdateCategories,
+        GetCategories
     };
 }

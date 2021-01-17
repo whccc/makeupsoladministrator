@@ -25,9 +25,10 @@ const ValidateForm = (strSubCategory, SetBlnShowMessage, StrIdCategory, strCateg
     Save(strSubCategory, StrIdCategory, SetBlnShowMessage, strCategory, SetUpdate);
 };
 //Select Categories
-const Selects = ({ objCategories, onChange }) => {
+const Selects = ({ objCategories, onChange, StrIdCategory }) => {
     return (
         <Select
+            value={StrIdCategory}
             onChange={(e) => {
                 const { options, selectedIndex, value } = e.target;
                 const name = options[selectedIndex].innerHTML;
@@ -209,6 +210,7 @@ export const SubCategories = () => {
                         SetStrCategory(name);
                         SetUpdate(true);
                     }}
+                    StrIdCategory={StrIdCategory}
                 />
 
                 <div>
