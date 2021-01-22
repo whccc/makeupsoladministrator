@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Nav } from './styles';
 import { SubMenu } from '../NavigationSubMenu';
 import PersonImg from '../../img/Person.png';
-import Logo from '../../img/Logo.jpeg';
+import Logo from '../../img/logo.jpeg';
 import {
     FaProductHunt,
     FaBox,
