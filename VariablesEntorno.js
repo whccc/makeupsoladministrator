@@ -1,2 +1,2 @@
-const URL_API = `http://192.168.1.56:3001/api`;
+const URL_API = `https://makeupsolapi.azurewebsites.net/api`;
 export { URL_API };
