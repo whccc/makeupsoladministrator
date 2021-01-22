@@ -3,7 +3,6 @@ import { Nav, Container } from './styles';
 import { FiAlignJustify } from 'react-icons/fi';
 import { Navigation } from '../Navigation';
 import { DeleteUserLogin } from '../../hooks/useUser';
-import Logo from '../../img/Logo.jpeg';
 
 const LogOut = () => {
     DeleteUserLogin();
