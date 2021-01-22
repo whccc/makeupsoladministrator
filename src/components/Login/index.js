@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Input } from './styles';
-import Logo from '../../img/Logo.jpeg';
+import Logo from '../../img/logo.jpeg';
 import { Message } from '../Message';
 import axios from 'axios';
 import { URL_API } from '../../../VariablesEntorno';
